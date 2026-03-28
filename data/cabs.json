@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Maruti Suzuki WagonR",
+    "type": "Hatchback",
+    "imageUrl": "/media/wagonr.jpg",
+    "description": "The Maruti Suzuki Wagon R is a popular, spacious tall-boy hatchback known for urban practicality, excellent cabin space, and high fuel efficiency",
+    "seats": 4,
+    "pricePerKm": 15
+  },
+  {
+    "id": 2,
+    "name": "Maruti Suzuki Ertiga",
+    "type": "MPV",
+    "imageUrl": "/media/ertiga.jpg",
+    "description": "The Maruti Suzuki Ertiga is a popular 7-seater MPV known for practicality, efficiency, and comfort with Smart Hybrid technology",
+    "seats": 7,
+    "pricePerKm": 19
+  },
+  {
+    "id": 3,
+    "name": "Renault Duster",
+    "type": "SUV",
+    "imageUrl": "/media/duster.jpg",
+    "description": "The 2026 Renault Duster is a rugged midsize SUV built for adventure, high ground clearance, and long road trips",
+    "seats": 5,
+    "pricePerKm": 20
+  }
+]
