@@ -1,3 +1,52 @@
 {
-  "pages": {}
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-598b0671fd518f44.js",
+      "static/chunks/fd9d1056-99698e2e9c7f3a30.js",
+      "static/chunks/23-ad9fb04f2c695d21.js",
+      "static/chunks/main-app-bdad0b5dd1ee1313.js",
+      "static/chunks/app/_not-found/page-f001d7fc3c001f1a.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-598b0671fd518f44.js",
+      "static/chunks/fd9d1056-99698e2e9c7f3a30.js",
+      "static/chunks/23-ad9fb04f2c695d21.js",
+      "static/chunks/main-app-bdad0b5dd1ee1313.js",
+      "static/css/79813f49aa5aaf62.css",
+      "static/chunks/231-dfa855709d11f10d.js",
+      "static/chunks/app/layout-ce74845dc955d781.js"
+    ],
+    "/book/page": [
+      "static/chunks/webpack-598b0671fd518f44.js",
+      "static/chunks/fd9d1056-99698e2e9c7f3a30.js",
+      "static/chunks/23-ad9fb04f2c695d21.js",
+      "static/chunks/main-app-bdad0b5dd1ee1313.js",
+      "static/chunks/231-dfa855709d11f10d.js",
+      "static/chunks/app/book/page-e8a44e358949d96e.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-598b0671fd518f44.js",
+      "static/chunks/fd9d1056-99698e2e9c7f3a30.js",
+      "static/chunks/23-ad9fb04f2c695d21.js",
+      "static/chunks/main-app-bdad0b5dd1ee1313.js",
+      "static/chunks/231-dfa855709d11f10d.js",
+      "static/chunks/app/page-15c39cb6f681c410.js"
+    ],
+    "/cabs/page": [
+      "static/chunks/webpack-598b0671fd518f44.js",
+      "static/chunks/fd9d1056-99698e2e9c7f3a30.js",
+      "static/chunks/23-ad9fb04f2c695d21.js",
+      "static/chunks/main-app-bdad0b5dd1ee1313.js",
+      "static/chunks/231-dfa855709d11f10d.js",
+      "static/chunks/app/cabs/page-5fe6ca899e669efc.js"
+    ],
+    "/services/page": [
+      "static/chunks/webpack-598b0671fd518f44.js",
+      "static/chunks/fd9d1056-99698e2e9c7f3a30.js",
+      "static/chunks/23-ad9fb04f2c695d21.js",
+      "static/chunks/main-app-bdad0b5dd1ee1313.js",
+      "static/chunks/231-dfa855709d11f10d.js",
+      "static/chunks/app/services/page-97f1a95ca0892eaa.js"
+    ]
+  }
 }
