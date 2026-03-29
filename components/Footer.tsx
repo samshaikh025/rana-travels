@@ -22,7 +22,7 @@ export default function Footer() {
               <a href="https://www.instagram.com/ranatravels_gujarat?igsh=MTZ3OG5kczVzN2poeg==" target="_blank" rel="noopener noreferrer" className="fs-4" title="Instagram" style={{ color: '#adb5bd' }}>
                 <i className="bi bi-instagram"></i>
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="fs-4" title="Facebook" style={{ color: '#adb5bd' }}>
+              <a href="https://www.facebook.com/share/1ENCWqvwfc/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="fs-4" title="Facebook" style={{ color: '#adb5bd' }}>
                 <i className="bi bi-facebook"></i>
               </a>
               <a href="https://www.youtube.com/@ranatravels88" target="_blank" rel="noopener noreferrer" className="fs-4" title="Youtube" style={{ color: '#adb5bd' }}>
@@ -73,7 +73,9 @@ export default function Footer() {
               </li>
               <li className="mb-2 d-flex align-items-start gap-2" style={{ color: '#adb5bd', fontSize: '0.9rem' }}>
                 <i className="bi bi-envelope-fill mt-1" style={{ color: '#f5c518' }}></i>
-                <span>info@ranatravels.com</span>
+                <span><a href="mailto:ranatravels@gmail.com?subject=Cab%20Booking&body=Hello%20Rana%20Travels,%0AI%20want%20to%20book%20a%20cab.">
+                  info@ranatravels.com</a>
+                </span>
               </li>
               <li className="mb-2 d-flex align-items-start gap-2" style={{ color: '#adb5bd', fontSize: '0.9rem' }}>
                 <i className="bi bi-geo-alt-fill mt-1" style={{ color: '#f5c518' }}></i>

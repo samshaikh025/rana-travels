@@ -4,9 +4,10 @@ import Link from 'next/link'
 import { Cab } from '../types'
 
 const typeColors: Record<string, string> = {
-  Hatchback: '#1a3c6e',
+  Sedan: '#1a3c6e',
   MPV: '#6f42c1',
   SUV: '#198754',
+  Van: '#871955ff',
 }
 
 interface CabCardProps {

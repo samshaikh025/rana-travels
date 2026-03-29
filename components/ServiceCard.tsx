@@ -25,3 +25,9 @@ export default function ServiceCard({ service }: ServiceCardProps) {
     </div>
   )
 }
+  //{
+  //   "id": 2,
+  //   "name": "One Way Trip",
+  //   "imageUrl": "/media/services/OneWay.jpg",
+  //   "description": "Single destination travel without return charges"
+  // }
