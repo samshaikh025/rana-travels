@@ -19,11 +19,14 @@ export default function Footer() {
             </p>
             {/* Social Icons */}
             <div className="d-flex gap-3 mt-3">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="fs-4" title="Instagram" style={{ color: '#adb5bd' }}>
+              <a href="https://www.instagram.com/ranatravels_gujarat?igsh=MTZ3OG5kczVzN2poeg==" target="_blank" rel="noopener noreferrer" className="fs-4" title="Instagram" style={{ color: '#adb5bd' }}>
                 <i className="bi bi-instagram"></i>
               </a>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="fs-4" title="Facebook" style={{ color: '#adb5bd' }}>
                 <i className="bi bi-facebook"></i>
+              </a>
+              <a href="https://www.youtube.com/@ranatravels88" target="_blank" rel="noopener noreferrer" className="fs-4" title="Youtube" style={{ color: '#adb5bd' }}>
+                <i className="bi bi-youtube"></i>
               </a>
               <a
                 href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${encodeURIComponent(process.env.NEXT_PUBLIC_WHATSAPP_SAMPLE_MSG ?? '')}`}
@@ -66,7 +69,7 @@ export default function Footer() {
             <ul className="list-unstyled">
               <li className="mb-2 d-flex align-items-start gap-2" style={{ color: '#adb5bd', fontSize: '0.9rem' }}>
                 <i className="bi bi-telephone-fill mt-1" style={{ color: '#f5c518' }}></i>
-                <span>+91-XXXXXXXXXX</span>
+                <span>+ {process.env.NEXT_PUBLIC_PHONE_NUMBER}</span>
               </li>
               <li className="mb-2 d-flex align-items-start gap-2" style={{ color: '#adb5bd', fontSize: '0.9rem' }}>
                 <i className="bi bi-envelope-fill mt-1" style={{ color: '#f5c518' }}></i>
@@ -74,7 +77,7 @@ export default function Footer() {
               </li>
               <li className="mb-2 d-flex align-items-start gap-2" style={{ color: '#adb5bd', fontSize: '0.9rem' }}>
                 <i className="bi bi-geo-alt-fill mt-1" style={{ color: '#f5c518' }}></i>
-                <span>Your City, India</span>
+                <span>Gujarat-India</span>
               </li>
             </ul>
             <a

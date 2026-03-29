@@ -76,7 +76,7 @@ const carouselSlides: CarouselSlide[] = [
 
 export default function HomePage() {
   const [current, setCurrent] = useState(0)
-
+  const basePath = process.env.NODE_ENV === 'production' ? '/rana-travels' : '';
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent(prev => (prev + 1) % carouselSlides.length)
@@ -109,7 +109,7 @@ export default function HomePage() {
               style={{
                 position: 'absolute',
                 inset: 0,
-                backgroundImage: `url(${slide.bgImage})`,
+                backgroundImage: `url(${basePath + slide.bgImage})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 opacity: 0.45,

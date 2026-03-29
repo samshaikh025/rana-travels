@@ -20,6 +20,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main>{children}</main>
         <Footer />
+        {/* Call Now Floating Button */}
+        <a
+          href={`tel:+${process.env.NEXT_PUBLIC_PHONE_NUMBER}`}
+          className="call-float"
+          title="Call Now"
+        >
+          <i className="bi bi-telephone-fill"></i>
+        </a>
         {/* WhatsApp Floating Button */}
         <a
           href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${encodeURIComponent(process.env.NEXT_PUBLIC_WHATSAPP_SAMPLE_MSG ?? '')}`}

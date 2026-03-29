@@ -32,6 +32,7 @@ jobs:
       NEXT_PUBLIC_WHATSAPP_NUMBER: ${{ vars.NEXT_PUBLIC_WHATSAPP_NUMBER }}
       NEXT_PUBLIC_WHATSAPP_SAMPLE_MSG: ${{ vars.NEXT_PUBLIC_WHATSAPP_SAMPLE_MSG }}
       NEXT_PUBLIC_NODE_ENV: ${{ vars.NEXT_PUBLIC_NODE_ENV }}
+      NEXT_PUBLIC_PHONE_NUMBER: ${{ vars.NEXT_PUBLIC_PHONE_NUMBER }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
