@@ -1,19 +1,10 @@
 [
   {
     "id": 1,
-    "name": "Maruti Suzuki WagonR",
-    "type": "Hatchback",
-    "imageUrl": "/media/wagonr.jpg",
-    "description": "The Maruti Suzuki Wagon R is a popular, spacious tall-boy hatchback known for urban practicality, excellent cabin space, and high fuel efficiency",
-    "seats": 4,
-    "pricePerKm": 15
-  },
-  {
-    "id": 2,
     "name": "Maruti Suzuki Ertiga",
     "type": "MPV",
-    "imageUrl": "/media/ertiga.jpg",
-    "description": "The Maruti Suzuki Ertiga is a popular 7-seater MPV known for practicality, efficiency, and comfort with Smart Hybrid technology",
+    "imageUrl": "/media/cabs/Ertiga.jpg",
+    "description": "A spacious 7-seater car ideal for family trips and group travel. Provides a comfortable ride, good mileage, and enough luggage space for long journeys.",
     "seats": 7,
     "pricePerKm": 19
   },
@@ -21,9 +12,36 @@
     "id": 3,
     "name": "Renault Duster",
     "type": "SUV",
-    "imageUrl": "/media/duster.jpg",
-    "description": "The 2026 Renault Duster is a rugged midsize SUV built for adventure, high ground clearance, and long road trips",
+    "imageUrl": "/media/cabs/Duster.jpg",
+    "description": "A powerful SUV designed for long-distance travel and rough roads. Offers high ground clearance, strong performance, and a comfortable ride for road trips.",
     "seats": 5,
     "pricePerKm": 20
+  },
+  {
+    "id": 4,
+    "name": "Toyota Innova",
+    "type": "MPV",
+    "imageUrl": "/media/cabs/Innova.jpg",
+    "description": "A premium 7-seater vehicle known for comfort and reliability. Perfect for long journeys, airport transfers, and family trips with smooth and spacious seating.",
+    "seats": 7,
+    "pricePerKm": 22
+  },
+  {
+    "id": 4,
+    "name": "Maruti Suzuki WagonR",
+    "type": "Hatchback",
+    "imageUrl": "/media/cabs/WagonR.jpg",
+    "description": "A comfortable and budget-friendly hatchback, perfect for daily city rides and short trips. Offers great mileage, smooth driving, and enough space for small families.",
+    "seats": 4,
+    "pricePerKm": 15
+  },
+  {
+    "id": 5,
+    "name": "Maruti Suzuki Eeco",
+    "type": "Van",
+    "imageUrl": "/media/cabs/Ecco.jpg",
+    "description": "A practical and economical 5 to 7-seater van suitable for group travel and local rides. Ideal for budget trips with decent space and simple comfort.",
+    "seats": 5,
+    "pricePerKm": 14
   }
 ]

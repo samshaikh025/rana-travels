@@ -15,7 +15,7 @@ interface CabCardProps {
 
 export default function CabCard({ cab }: CabCardProps) {
   const badgeColor = typeColors[cab.type] ?? '#1a3c6e'
-
+  const basePath = process.env.NODE_ENV === 'production' ? '/rana-travels' : '';
   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const img = e.currentTarget
     img.style.display = 'none'
@@ -27,7 +27,7 @@ export default function CabCard({ cab }: CabCardProps) {
     <div className="card h-100">
       <div style={{ position: 'relative', height: '200px', overflow: 'hidden', background: '#e9ecef' }}>
         <img
-          src={cab.imageUrl}
+          src={basePath + cab.imageUrl}
           alt={cab.name}
           className="cab-img"
           onError={handleImgError}

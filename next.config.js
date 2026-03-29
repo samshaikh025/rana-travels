@@ -1,8 +1,11 @@
+const isProd = process.env.NEXT_PUBLIC_NODE_ENV === 'production';
+
 const nextConfig = {
   output: 'export',
-  basePath: '/rana-travels',       // replace with your repo name
-  assetPrefix: '/rana-travels/',
-  images: { unoptimized: true },     // required for static export
+  images: { unoptimized: true },
+
+  basePath: isProd ? '/rana-travels' : '',
+  assetPrefix: isProd ? '/rana-travels/' : '',
 };
 
 module.exports = nextConfig;

@@ -71,17 +71,8 @@ body {
   color: #fff;
   transform: scale(1.08);
 }
-.hero-carousel .carousel-item {
+.hero-carousel {
   min-height: 480px;
-}
-.hero-carousel .carousel-caption {
-  bottom: 30%;
-}
-.hero-carousel .carousel-item .slide-bg {
-  min-height: 480px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .feature-icon {
   font-size: 2.5rem;

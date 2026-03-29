@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import './globals.css'
@@ -29,12 +30,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           <i className="bi bi-whatsapp"></i>
         </a>
-        <script
+        <Script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmBFoVBUKOQRh7C9g0oHnCJUZvfC"
           crossOrigin="anonymous"
-          async
-        ></script>
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )

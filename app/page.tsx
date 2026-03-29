@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import CabCard from '../components/CabCard'
 import ServiceCard from '../components/ServiceCard'
@@ -42,7 +43,8 @@ const features: Feature[] = [
 ]
 
 interface CarouselSlide {
-  gradient: string
+  bgImage: string
+  overlay: string
   heading: string
   subtext: string
   btn: { label: string; href: string }
@@ -50,19 +52,22 @@ interface CarouselSlide {
 
 const carouselSlides: CarouselSlide[] = [
   {
-    gradient: 'linear-gradient(135deg, #1a3c6e 0%, #2a5298 60%, #1565c0 100%)',
+    bgImage: '/media/cabs/Innova.jpg',
+    overlay: 'rgba(26, 60, 110, 0.72)',
     heading: 'Safe & Reliable Cab Service',
     subtext: 'Experienced drivers, well-maintained vehicles, 24/7 availability.',
     btn: { label: 'Book a Cab', href: '/book' },
   },
   {
-    gradient: 'linear-gradient(135deg, #4a0e8f 0%, #6f42c1 60%, #9b59b6 100%)',
+    bgImage: '/media/cabs/Ertiga.jpg',
+    overlay: 'rgba(74, 14, 143, 0.72)',
     heading: 'Outstation & Round Trips',
     subtext: 'Plan your outstation journey with comfort and the best pricing available.',
     btn: { label: 'Explore Services', href: '/services' },
   },
   {
-    gradient: 'linear-gradient(135deg, #145a32 0%, #1e8449 60%, #27ae60 100%)',
+    bgImage: '/media/cabs/Duster.jpg',
+    overlay: 'rgba(20, 90, 50, 0.72)',
     heading: 'Airport Transfers Made Easy',
     subtext: 'Never miss a flight. Our drivers track your schedule for timely pickup.',
     btn: { label: 'See Our Cabs', href: '/cabs' },
@@ -70,62 +75,98 @@ const carouselSlides: CarouselSlide[] = [
 ]
 
 export default function HomePage() {
+  const [current, setCurrent] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent(prev => (prev + 1) % carouselSlides.length)
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [])
+
+  const goPrev = () => setCurrent(c => (c - 1 + carouselSlides.length) % carouselSlides.length)
+  const goNext = () => setCurrent(c => (c + 1) % carouselSlides.length)
+
   return (
     <>
       {/* Hero Carousel */}
-      <div
-        id="heroCarousel"
-        className="carousel slide hero-carousel"
-        data-bs-ride="carousel"
-        data-bs-interval="4000"
-      >
-        <div className="carousel-indicators">
+      <div className="hero-carousel position-relative overflow-hidden" style={{ minHeight: '480px' }}>
+        {carouselSlides.map((slide, i) => (
+          <div
+            key={i}
+            className="d-flex align-items-center justify-content-center text-white"
+            style={{
+              position: i === 0 ? 'relative' : 'absolute',
+              inset: 0,
+              minHeight: '480px',
+              opacity: i === current ? 1 : 0,
+              transition: 'opacity 0.6s ease-in-out',
+              pointerEvents: i === current ? 'auto' : 'none',
+            }}
+          >
+            {/* Background image at reduced opacity */}
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                backgroundImage: `url(${slide.bgImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                opacity: 0.45,
+              }}
+            />
+            {/* Color overlay */}
+            <div style={{ position: 'absolute', inset: 0, background: slide.overlay }} />
+            {/* Content */}
+            <div className="container text-center py-5 position-relative" style={{ zIndex: 1 }}>
+              <div className="mb-3">
+                <i className="bi bi-taxi-front-fill" style={{ fontSize: '3rem', color: '#f5c518' }}></i>
+              </div>
+              <h1 className="display-5 fw-bold mb-3">{slide.heading}</h1>
+              <p className="lead mb-4 mx-auto" style={{ maxWidth: '600px', opacity: 0.9 }}>
+                {slide.subtext}
+              </p>
+              <Link href={slide.btn.href} className="btn btn-book btn-lg rounded-pill px-5 py-3">
+                <i className="bi bi-arrow-right-circle me-2"></i>
+                {slide.btn.label}
+              </Link>
+            </div>
+          </div>
+        ))}
+
+        {/* Prev button */}
+        <button
+          onClick={goPrev}
+          className="carousel-control-prev"
+          style={{ position: 'absolute', top: 0, bottom: 0, left: 0, width: '10%', zIndex: 10, background: 'none', border: 'none' }}
+          aria-label="Previous"
+        >
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+
+        {/* Next button */}
+        <button
+          onClick={goNext}
+          className="carousel-control-next"
+          style={{ position: 'absolute', top: 0, bottom: 0, right: 0, width: '10%', zIndex: 10, background: 'none', border: 'none' }}
+          aria-label="Next"
+        >
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+
+        {/* Indicators */}
+        <div className="carousel-indicators" style={{ position: 'absolute', bottom: '12px', zIndex: 10 }}>
           {carouselSlides.map((_, i) => (
             <button
               key={i}
+              onClick={() => setCurrent(i)}
               type="button"
-              data-bs-target="#heroCarousel"
-              data-bs-slide-to={i}
-              className={i === 0 ? 'active' : ''}
-              aria-current={i === 0 ? 'true' : undefined}
+              className={i === current ? 'active' : ''}
               aria-label={`Slide ${i + 1}`}
-            ></button>
+              style={{ width: '10px', height: '10px', borderRadius: '50%', border: 'none', margin: '0 4px', background: i === current ? '#fff' : 'rgba(255,255,255,0.5)', cursor: 'pointer' }}
+            />
           ))}
         </div>
-
-        <div className="carousel-inner">
-          {carouselSlides.map((slide, i) => (
-            <div key={i} className={`carousel-item ${i === 0 ? 'active' : ''}`}>
-              <div
-                className="slide-bg d-flex align-items-center justify-content-center text-white"
-                style={{ background: slide.gradient, minHeight: '480px' }}
-              >
-                <div className="container text-center py-5">
-                  <div className="mb-3">
-                    <i className="bi bi-taxi-front-fill" style={{ fontSize: '3rem', color: '#f5c518' }}></i>
-                  </div>
-                  <h1 className="display-5 fw-bold mb-3">{slide.heading}</h1>
-                  <p className="lead mb-4 mx-auto" style={{ maxWidth: '600px', opacity: 0.9 }}>
-                    {slide.subtext}
-                  </p>
-                  <Link href={slide.btn.href} className="btn btn-book btn-lg rounded-pill px-5 py-3">
-                    <i className="bi bi-arrow-right-circle me-2"></i>
-                    {slide.btn.label}
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <button className="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button className="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Next</span>
-        </button>
       </div>
 
       {/* Why Choose Us */}
