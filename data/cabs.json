@@ -30,7 +30,7 @@
     "id": 4,
     "name": "Honda Amaze",
     "type": "Sedan",
-    "imageUrl": "/media/cabs/Amaze.jpg",
+    "imageUrl": "/media/cabs/amaze.jpg",
     "description": "A comfortable and stylish sedan, perfect for city rides and long-distance travel. Offers smooth driving, spacious seating, and great fuel efficiency for a relaxed journey.",
     "seats": 4,
     "pricePerKm": 13
