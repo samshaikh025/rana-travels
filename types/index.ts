@@ -23,6 +23,7 @@ export interface FormState {
   pickup: string
   drop: string
   date: string
+  time: string
   notes: string
 }
 

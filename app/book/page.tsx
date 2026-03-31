@@ -24,6 +24,7 @@ const initialForm: FormState = {
   pickup: '',
   drop: '',
   date: '',
+  time: '',
   notes: '',
 }
 
@@ -33,6 +34,9 @@ function BookForm() {
   const [errors, setErrors] = useState<FormErrors>({})
   const [submitted, setSubmitted] = useState<boolean>(false)
   const [todayStr, setTodayStr] = useState<string>('')
+  const [timeHour, setTimeHour] = useState<string>('')
+  const [timeMin, setTimeMin] = useState<string>('')
+  const [timePeriod, setTimePeriod] = useState<string>('')
 
   useEffect(() => {
     setTodayStr(new Date().toISOString().split('T')[0])
@@ -49,6 +53,11 @@ function BookForm() {
       }
     }
   }, [searchParams])
+
+  const handleTimeChange = (hour: string, min: string, period: string) => {
+    const combined = hour && min && period ? `${hour}:${min} ${period}` : ''
+    setForm((prev) => ({ ...prev, time: combined }))
+  }
 
   const validate = (): FormErrors => {
     const errs: FormErrors = {}
@@ -83,7 +92,7 @@ function BookForm() {
     const cabName = selectedCab ? selectedCab.name : 'N/A'
     const pricePerKm = selectedCab ? `\u20b9${selectedCab.pricePerKm}` : 'N/A'
 
-    const message = `Hello Rana Travels,\nI want to book a cab.\n\nName: ${form.name}\nPhone: ${form.phone}\nTrip: ${form.tripType}\nCab: ${cabName} (${pricePerKm}/km approx)\nPickup: ${form.pickup}\nDrop: ${form.drop}\nDate: ${form.date}${form.notes ? `\nNotes: ${form.notes}` : ''}`
+    const message = `Hello Rana Travels,\nI want to book a cab.\n\nName: ${form.name}\nPhone: ${form.phone}\nTrip: ${form.tripType}\nCab: ${cabName} (${pricePerKm}/km approx)\nPickup: ${form.pickup}\nDrop: ${form.drop}\nDate: ${form.date}${form.time ? `\nTime: ${form.time}` : ''}${form.notes ? `\nNotes: ${form.notes}` : ''}`
 
     const encodedMessage = encodeURIComponent(message)
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`
@@ -98,6 +107,9 @@ function BookForm() {
     setForm(initialForm)
     setErrors({})
     setSubmitted(false)
+    setTimeHour('')
+    setTimeMin('')
+    setTimePeriod('')
   }
 
   const selectedCab = (cabs as Cab[]).find((c) => String(c.id) === form.cabId)
@@ -298,6 +310,47 @@ function BookForm() {
                     style={{ borderLeft: 'none' }}
                   />
                   {errors.date && <div className="invalid-feedback">{errors.date}</div>}
+                </div>
+              </div>
+
+              {/* Time */}
+              <div className="col-md-6">
+                <label className="form-label fw-semibold" style={{ color: '#1a3c6e' }}>
+                  Pickup Time <span className="text-muted fw-normal">(optional)</span>
+                </label>
+                <div className="input-group">
+                  <span className="input-group-text" style={{ background: '#e9ecef' }}>
+                    <i className="bi bi-clock-fill" style={{ color: '#1a3c6e' }}></i>
+                  </span>
+                  <select
+                    className="form-select"
+                    value={timeHour}
+                    onChange={(e) => { setTimeHour(e.target.value); handleTimeChange(e.target.value, timeMin, timePeriod) }}
+                  >
+                    <option value="">HH</option>
+                    {[12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((h) => (
+                      <option key={h} value={String(h)}>{String(h).padStart(2, '0')}</option>
+                    ))}
+                  </select>
+                  <select
+                    className="form-select"
+                    value={timeMin}
+                    onChange={(e) => { setTimeMin(e.target.value); handleTimeChange(timeHour, e.target.value, timePeriod) }}
+                  >
+                    <option value="">MM</option>
+                    {['00', '15', '30', '45'].map((m) => (
+                      <option key={m} value={m}>{m}</option>
+                    ))}
+                  </select>
+                  <select
+                    className="form-select"
+                    value={timePeriod}
+                    onChange={(e) => { setTimePeriod(e.target.value); handleTimeChange(timeHour, timeMin, e.target.value) }}
+                  >
+                    <option value="">AM/PM</option>
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
+                  </select>
                 </div>
               </div>
 
